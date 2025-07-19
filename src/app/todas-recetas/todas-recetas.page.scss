@@ -1,0 +1,53 @@
+.receta-card {
+  margin-bottom: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.receta-img-container {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+ion-card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #222;
+}
+
+ion-card-subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+ion-card-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.estrellas {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #f0b400;
+}
+
+ion-button {
+  margin-top: 14px;
+  font-weight: 500;
+  --border-radius: 10px;
+}
+

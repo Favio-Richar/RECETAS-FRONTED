@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Todas las Recetas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Buscador -->
+  <ion-searchbar [(ngModel)]="busqueda" (ionInput)="filtrarRecetas()" placeholder="Buscar recetas..."></ion-searchbar>
+
+  <!-- Filtro por categoría -->
+  <ion-segment [(ngModel)]="categoriaSeleccionada" (ionChange)="filtrarPorCategoria(categoriaSeleccionada)">
+    <ion-segment-button value="">
+      <ion-label>Todo</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="desayuno">
+      <ion-label>Desayuno</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="almuerzo">
+      <ion-label>Almuerzo</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="cena">
+      <ion-label>Cena</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="postre">
+      <ion-label>Postre</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="vegetariano">
+      <ion-label>Vegetariano</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="rápida">
+      <ion-label>Receta Rápida</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Lista de recetas -->
+  <ion-list *ngIf="recetasFiltradas.length > 0; else sinRecetas">
+    <ion-card *ngFor="let receta of recetasFiltradas" class="receta-card">
+
+      <!-- Imagen con estilo -->
+      <img [src]="receta.imagen" alt="Imagen receta" class="receta-img"/>
+
+      <ion-card-header>
+        <ion-card-title>{{ receta.titulo }}</ion-card-title>
+        <ion-card-subtitle>
+          {{ receta.categoria }} - {{ receta.fecha_publicacion | date:'mediumDate' }}<br />
+          <strong>Creado por:</strong> {{ receta.autor_nombre || 'Desconocido' }}
+        </ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p><strong>Ingredientes:</strong> {{ receta.ingredientes }}</p>
+        <p><strong>Preparación:</strong> {{ receta.preparacion }}</p>
+
+        <!-- Calificación -->
+        <div class="estrellas">
+          <strong>Califica:</strong>
+          <ion-icon *ngFor="let star of [1,2,3,4,5]"
+                    [name]="calificaciones[receta.id] >= star ? 'star' : 'star-outline'"
+                    (click)="calificar(receta.id, star)">
+          </ion-icon>
+        </div>
+
+        <!-- Favorito -->
+        <ion-button color="danger" expand="block" (click)="marcarFavorito(receta.id)">
+          <ion-icon slot="start" name="heart-outline"></ion-icon>
+          Marcar como Favorito
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <!-- Mensaje si no hay recetas -->
+  <ng-template #sinRecetas>
+    <ion-text color="medium">
+      <p class="ion-padding">No hay recetas disponibles.</p>
+    </ion-text>
+  </ng-template>
+</ion-content>

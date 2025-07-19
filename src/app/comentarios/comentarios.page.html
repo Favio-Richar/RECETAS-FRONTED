@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Comentarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="comentarios-titulo">
+    <h2>Opiniones de la comunidad</h2>
+    <p>Revisa y comparte comentarios sobre tus recetas favoritas.</p>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let receta of recetas">
+        <ion-card class="card-receta">
+          <ion-img [src]="receta.imagen" class="receta-img"></ion-img>
+
+          <ion-card-header>
+            <ion-card-title>{{ receta.titulo }}</ion-card-title>
+            <ion-card-subtitle class="fecha">{{ receta.fecha_publicacion | date:'longDate' }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <p><strong>Ingredientes:</strong> {{ receta.ingredientes }}</p>
+            <p><strong>Preparación:</strong> {{ receta.preparacion }}</p>
+
+            <ion-button expand="block" color="secondary" shape="round" (click)="comentar(receta.id)">
+              Comentar
+            </ion-button>
+
+            <!-- Comentarios -->
+            <ion-list *ngIf="tieneComentarios(receta.id)">
+              <ion-item class="comentario-item" *ngFor="let c of comentariosPorReceta[receta.id]">
+                <ion-avatar slot="start">
+                  <ion-icon name="person-circle-outline" style="font-size: 28px;"></ion-icon>
+                </ion-avatar>
+                <ion-label>
+                  <h4 class="autor">{{ c.autor_nombre }}</h4>
+                  <p class="contenido">{{ c.contenido }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+
+            <p class="sin-comentarios" *ngIf="noTieneComentarios(receta.id)">
+              No hay comentarios todavía. Sé el primero en opinar.
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

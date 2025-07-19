@@ -1,11 +1,24 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
-  standalone: false,
+  standalone: false
 })
 export class AppComponent {
-  constructor() {}
+  logueado = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    const user_id = localStorage.getItem('user_id');
+    this.logueado = !!user_id;
+  }
+
+  cerrarSesion() {
+    localStorage.clear();
+    this.logueado = false;
+    this.router.navigate(['/login']);
+  }
 }

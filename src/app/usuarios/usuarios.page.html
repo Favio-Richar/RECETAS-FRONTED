@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Usuarios Registrados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="usuarios-content">
+  <div class="overlay"></div>
+
+  <div class="usuarios-container">
+    <h2 class="section-title">👥 Listado de Usuarios</h2>
+    <p class="section-description">Consulta quiénes forman parte de tu comunidad.</p>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let user of usuarios">
+          <ion-card class="usuario-card">
+            <ion-card-content class="card-content">
+              <div class="top">
+                <img class="avatar-img" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />
+                <div class="datos">
+                  <h3>{{ user.nombre }}</h3>
+                  <p>{{ user.correo }}</p>
+                </div>
+              </div>
+              <div class="acciones">
+                <ion-button size="small" fill="outline" color="primary" disabled>Ver perfil</ion-button>
+                <ion-button size="small" fill="clear" color="medium" disabled>Editar</ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

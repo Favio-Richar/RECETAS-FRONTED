@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mis Recetas Favoritas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- SECCIÓN DESCRIPTIVA TIPO APP REAL -->
+  <div class="favoritos-header">
+    <h2>Explora tus Recetas Favoritas</h2>
+    <p>Estas son las recetas que más te han encantado. Aquí podrás ver nuevamente sus ingredientes, preparación y tu calificación personal. ¡Sigue disfrutando de lo que más te gusta cocinar!</p>
+  </div>
+
+  <ng-container *ngIf="favoritos.length > 0; else noFavoritos">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6" *ngFor="let favorito of favoritos">
+          <ion-card class="receta-card">
+            <ion-img [src]="favorito.imagen" class="receta-img"></ion-img>
+
+            <ion-card-header>
+              <ion-card-title>{{ favorito.titulo }}</ion-card-title>
+              <ion-card-subtitle>
+                <span class="categoria">{{ favorito.categoria }}</span> - 
+                <span class="fecha">{{ favorito.fecha_publicacion | date:'mediumDate' }}</span><br>
+                <strong>Creado por:</strong> {{ favorito.autor_nombre }}
+              </ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              <p><strong>Ingredientes:</strong> {{ favorito.ingredientes }}</p>
+              <p><strong>Preparación:</strong> {{ favorito.preparacion }}</p>
+
+              <div class="calificacion">
+                <strong>Tu calificación:</strong>
+                <ion-icon *ngFor="let star of [1,2,3,4,5]"
+                  [name]="favorito.calificacion >= star ? 'star' : 'star-outline'">
+                </ion-icon>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
+
+  <ng-template #noFavoritos>
+    <ion-text color="medium">
+      <p class="ion-text-center">No tienes recetas favoritas aún.</p>
+    </ion-text>
+  </ng-template>
+</ion-content>

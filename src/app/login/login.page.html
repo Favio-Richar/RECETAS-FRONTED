@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input type="email" [(ngModel)]="correo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="contrasena"></ion-input> <!-- ✅ cambiado de clave -->
+      </ion-item>
+
+      <ion-button expand="full" (click)="iniciarSesion()">Entrar</ion-button>
+      <ion-button expand="full" routerLink="/register">Crear cuenta</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

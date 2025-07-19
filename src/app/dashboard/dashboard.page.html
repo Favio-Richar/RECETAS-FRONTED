@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Banner -->
+  <div class="welcome-container">
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" class="banner-img" />
+    <h1 class="title">Bienvenido a <span class="resaltado">Tu Recetario</span></h1>
+    <p class="subtitle">
+      Descubre, guarda y comparte recetas deliciosas. Organiza tu cocina como un chef.
+    </p>
+  </div>
+
+  <!-- Tarjetas -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <ion-card class="card-option" routerLink="/todas-recetas">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" />
+          <ion-card-header>
+            <ion-card-title><ion-icon name="restaurant-outline"></ion-icon> Recetas</ion-card-title>
+            <ion-card-subtitle>Explora recetas por categoría</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <ion-card class="card-option" routerLink="/comentarios">
+          <img src="https://images.unsplash.com/photo-1606112219348-204d7d8b94ee" />
+          <ion-card-header>
+            <ion-card-title><ion-icon name="chatbubbles-outline"></ion-icon> Comentarios</ion-card-title>
+            <ion-card-subtitle>Opiniones de usuarios</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <ion-card class="card-option" routerLink="/usuarios">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" />
+          <ion-card-header>
+            <ion-card-title><ion-icon name="people-outline"></ion-icon> Usuarios</ion-card-title>
+            <ion-card-subtitle>Consulta usuarios registrados</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Categorías populares -->
+  <div class="categorias">
+    <h3>Categorías Populares</h3>
+    <ion-chip color="success">Desayuno</ion-chip>
+    <ion-chip color="warning">Almuerzo</ion-chip>
+    <ion-chip color="tertiary">Cena</ion-chip>
+    <ion-chip color="danger">Rápida</ion-chip>
+    <ion-chip color="medium">Vegetariana</ion-chip>
+  </div>
+
+  <!-- Estadísticas -->
+  <div class="stats">
+    <h3>Resumen</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" size-md="3"><ion-card><ion-card-content><h2>23</h2><p>Recetas</p></ion-card-content></ion-card></ion-col>
+        <ion-col size="6" size-md="3"><ion-card><ion-card-content><h2>15</h2><p>Comentarios</p></ion-card-content></ion-card></ion-col>
+        <ion-col size="6" size-md="3"><ion-card><ion-card-content><h2>5</h2><p>Usuarios</p></ion-card-content></ion-card></ion-col>
+        <ion-col size="6" size-md="3"><ion-card><ion-card-content><h2>7</h2><p>Favoritos</p></ion-card-content></ion-card></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Frase destacada -->
+  <div class="frase">
+    <p><ion-icon name="quote"></ion-icon> Cocinar es una forma de decir te quiero sin palabras.</p>
+  </div>
+
+  <!-- Blog Tips -->
+  <div class="tips">
+    <h3>Tips de Cocina</h3>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>🍳 Cómo elegir ingredientes frescos</ion-card-title>
+        <ion-card-subtitle>Publicado hoy</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Aprende a elegir los mejores productos frescos para tus recetas, desde vegetales hasta carnes.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

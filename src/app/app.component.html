@@ -1,3 +1,54 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ng-container *ngIf="logueado">
+    <ion-menu side="start" menuId="first" contentId="main-content">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Menú</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item routerLink="/dashboard" routerDirection="root">
+            <ion-icon slot="start" name="home-outline"></ion-icon>
+            Inicio
+          </ion-item>
+
+          <ion-item routerLink="/home" routerDirection="root">
+            <ion-icon slot="start" name="book-outline"></ion-icon>
+            Recetas
+          </ion-item>
+
+          <!-- ✅ Agregado correctamente -->
+          <ion-item routerLink="/todas-recetas" routerDirection="root">
+            <ion-icon slot="start" name="restaurant-outline"></ion-icon>
+            Todas las Recetas
+          </ion-item>
+
+          <ion-item routerLink="/comentarios" routerDirection="root">
+            <ion-icon slot="start" name="chatbox-outline"></ion-icon>
+            Comentarios
+          </ion-item>
+
+          <ion-item routerLink="/usuarios" routerDirection="root">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            Usuarios registrados
+          </ion-item>
+
+          <ion-item routerLink="/mis-favoritos" routerDirection="root">
+            <ion-icon slot="start" name="heart-outline"></ion-icon>
+            Favoritos
+          </ion-item>
+
+          <ion-item (click)="cerrarSesion()">
+            <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            Cerrar sesión
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  </ng-container>
+
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
 </ion-app>

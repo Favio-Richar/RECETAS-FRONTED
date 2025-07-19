@@ -1,0 +1,82 @@
+.favoritos-header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 20px 10px;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+    margin: 0 auto;
+    max-width: 700px;
+  }
+}
+
+.receta-card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  ion-card-title {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    font-weight: 700;
+  }
+
+  ion-card-subtitle {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .receta-img {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #f4f4f4;
+  }
+
+  p {
+    font-size: 0.95rem;
+    margin: 5px 0;
+    color: #333;
+  }
+
+  .calificacion {
+    margin-top: 10px;
+
+    ion-icon {
+      color: #f4b400;
+      font-size: 20px;
+    }
+  }
+
+  .categoria {
+    background-color: #e0f7fa;
+    color: #00796b;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    margin-right: 5px;
+  }
+
+  .fecha {
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #888;
+  }
+}
